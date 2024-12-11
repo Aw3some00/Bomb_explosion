@@ -5,11 +5,11 @@
 namespace checkers {
     bool count_checker(double const percent) {
         if(percent > 100000000) {
-            throw std::invalid_argument("percent is too high");
+            throw std::invalid_argument("count of bombs is too high");
             return false;
         }
         else if(percent < 0) {
-            throw std::invalid_argument("percent is too small");
+            throw std::invalid_argument("count of bombs is too small");
             return false;
         }
         else if(percent == 0) {
