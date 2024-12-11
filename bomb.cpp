@@ -4,7 +4,7 @@
 
 
 double procent_checker(double const percent) {
-    if(percent > 100) {
+    if(percent > 100000000) {
         throw std::invalid_argument("percent is too high");
     }
     else if(percent < 0) {
@@ -14,7 +14,7 @@ double procent_checker(double const percent) {
         std::cout<<"there is no bomb on the field\n";
         return 0;
     }
-    else if(percent == 100) {
+    else if(percent == 100000000) {
         std::cout<<"all the bombs make a max row\n";
         return 0;
     }
@@ -23,11 +23,12 @@ double procent_checker(double const percent) {
 
 
 
-    namespace nag {
+    namespace b {
 
         struct Bomb {
             double x;
             double y;
+            bool is_exploded=false;
         };
 
 

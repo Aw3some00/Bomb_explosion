@@ -1,12 +1,13 @@
 #include <iostream>
 #include "bomb.h"
 int main() {
-    double procent;
+    double count;
 
-    std::cout<<"Введите процент заполненности поля ";
-    std::cin>>procent;
-    double percent_checker(procent);
-    nag::printBombs( nag::generateBombs(10000,10000,procent*1000000));
+    std::cout<<"Введите количество бомб ";
+    std::cin>>count;
+    double percent_checker(count);
+    b::printBombs( b::generateBombs(10000,10000,count));
+    
 
 
     return 0;

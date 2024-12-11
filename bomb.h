@@ -5,10 +5,11 @@
 
 
 double procent_checker(double const percent);
-namespace nag{
+namespace b{
     struct Bomb {
         double x;
         double y;
+        bool is_exploded;
     };
     std::vector<Bomb> generateBombs(int rows, int cols, int ones_count);
     void printBombs(const std::vector<Bomb>& bombs);
