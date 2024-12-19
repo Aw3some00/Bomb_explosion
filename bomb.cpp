@@ -1,94 +1,65 @@
 #include <iostream>
 #include <vector>
-#include <math.h>
 #include <cmath>
+#include <cstdlib>
+#include <ctime>
+#include <queue>
+#include <stdexcept>
+#include <tuple>
 #include <map>
 #include <set>
+#include <algorithm>
+
 namespace checkers {
-    bool count_checker(double const percent) {
-        if(percent > 100000000) {
-            throw std::invalid_argument("count of bombs is too high");
-            return false;
-        }
-        else if(percent < 0) {
-            throw std::invalid_argument("count of bombs is too small");
-            return false;
-        }
-        else if(percent == 0) {
-            std::cout<<"there is no bomb on the field\n";
-            return false;
-        }
-        else if(percent == 100000000) {
-            std::cout<<"all the bombs make a max row\n";
+    bool borders_check(double x) {
+        return x >= -10000 && x <= 10000;
+    }
+
+    bool count_checker(double count) {
+        if (count < 0) {
+            throw std::invalid_argument("Слишком мало бомб\n");
+        } else if (count == 0) {
+            std::cout << "Отсутствие бомб на поле\n";
             return false;
         }
         return true;
-
     }
 
-    bool r_checker(double const radius) {
-        if(radius < 0) {
-            throw std::invalid_argument("radius is too small");
-            return false;
-        }
-        else if(radius >=10000) {
-            throw std::invalid_argument("radius is too high");
-            return false;
-        }
-        else if(radius == 0) {
-            std::cout<<"max explosion lenght is 0";
-            return false;
-        }
-        else if(radius == 10000) {
-            std::cout<<"max explosion lenght it is all the bombs";
-            return false;
+    bool r_checker(double radius) {
+        if (radius <= 0) {
+            throw std::invalid_argument("Радиус должен быть больше 0\n");
+        } else if (radius > 5000) {
+            throw std::invalid_argument("Радиус слишком большой\n");
         }
         return true;
     }
 }
 namespace b {
     struct Bomb {
-
         double x;
         double y;
-        bool exploded=false;
+        double radius;
+        bool exploded = false;
     };
 
-    bool is_in_radius(Bomb a,Bomb b,double r) {
-        double ds= (a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y);
-        if(ds<=r*r) {
-            return true;
-        }
-        else {
-            return false;
-        }
+
+    bool is_in_radius(const Bomb& a, const Bomb& b) {
+        double distance_squared = (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
+        double radius_sum = a.radius + b.radius;
+        return distance_squared <= radius_sum * radius_sum && !b.exploded;
     }
 
-    std::vector<Bomb> generateBombs(int rows, int cols, int ones_count) {
-        std::vector<Bomb> bombs;
 
-
-        std::srand(std::time(nullptr));
-
-        while (bombs.size() < ones_count) {
-
-            double x = static_cast<double>(std::rand()) /RAND_MAX * rows;
-            double y = static_cast<double>(std::rand()) /RAND_MAX * cols;
-
-            bombs.push_back({x, y});
-        }
-
-        return bombs;
-    }
-
-    int simulate_chain_reaction(std::vector<Bomb>& bombs, int start_index, double r) {
+    int simulate_chain_reaction(std::vector<Bomb>& bombs, int start_index) {
         int detonated_count = 0;
+        std::queue<int> q;
+
 
         for (auto& bomb : bombs) {
             bomb.exploded = false;
         }
 
-        std::queue<int> q;
+
         q.push(start_index);
         bombs[start_index].exploded = true;
         detonated_count++;
@@ -98,8 +69,9 @@ namespace b {
             int current = q.front();
             q.pop();
 
+
             for (int i = 0; i < bombs.size(); ++i) {
-                if (!bombs[i].exploded && is_in_radius(bombs[current], bombs[i], r)) {
+                if (i != current && !bombs[i].exploded && is_in_radius(bombs[current], bombs[i])) {
                     bombs[i].exploded = true;
                     detonated_count++;
                     q.push(i);
@@ -111,43 +83,55 @@ namespace b {
     }
 
 
-    double findbest(std::vector<Bomb> bombs, double r) {
-        int max = 0;
-        std::multimap<int, int, std::greater<int>> index_of_max_exp;;
-        for (int i = 0; i < bombs.size(); ++i) {
-            for (auto& bomb : bombs) {
-                bomb.exploded = false;
-            }
-
-            int detonated = simulate_chain_reaction(bombs, i, r);
-            index_of_max_exp.insert(std::make_pair(detonated, i));
-            if (detonated > max) {
-                max = detonated;
-            }
-
-        }
-        std::cout<<"индексы бомб с максимальной цеанной реакцией \n";
-        for (const auto& entry : index_of_max_exp) {
-            if (entry.first == max) {
-                std::cout<<entry.second + 1 << ' ';
-            } else {
-                break;
+    double calculate_area_of_explosion(const std::vector<Bomb>& bombs) {
+        double total_area = 0;
+        for (const auto& bomb : bombs) {
+            if (bomb.exploded) {
+                total_area += M_PI * bomb.radius * bomb.radius;
             }
         }
-
-        std::cout<<"\nМаксимальный радиус поражения: ";
-        return M_PI*r*r*max;
+        return total_area;
     }
 
 
+    double calculate_total_area_with_chain_reaction(std::vector<Bomb>& bombs, int start_index) {
+
+        simulate_chain_reaction(bombs, start_index);
 
 
+        return calculate_area_of_explosion(bombs);
+    }
 
 
+    void find_indexes_of_max_chain_reaction(std::vector<Bomb>& bombs, std::vector<int>& max_indexes, double& max_area) {
+        int max_count = 0;
 
-    void printBombs(const std::vector<Bomb>& bombs) {
-        for (const auto& bomb : bombs) {
-            std::cout << "Bomb at (" << bomb.x << ", " << bomb.y << ")\n";
+
+        for (int i = 0; i < bombs.size(); ++i) {
+
+            std::vector<Bomb> bombs_copy = bombs;
+
+
+            int detonated_count = simulate_chain_reaction(bombs_copy, i);
+            double area = calculate_area_of_explosion(bombs_copy);
+
+
+            if (detonated_count > max_count) {
+                max_count = detonated_count;
+                max_area = area;
+                max_indexes.clear();
+                max_indexes.push_back(i);
+            }
+
+            else if (detonated_count == max_count && area > max_area) {
+                max_area = area;
+                max_indexes.clear();
+                max_indexes.push_back(i);
+            }
+
+            else if (detonated_count == max_count && area == max_area) {
+                max_indexes.push_back(i);
+            }
         }
     }
 }
