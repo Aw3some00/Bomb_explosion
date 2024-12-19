@@ -3,6 +3,5 @@ project(project_x)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(project_x main.cpp
-        bomb.cpp
-        test.cpp)
+add_executable(tests test.cpp bomb.cpp)
+add_executable(main main.cpp bomb.cpp)
