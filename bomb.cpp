@@ -26,7 +26,7 @@ namespace checkers {
     }
 
     bool r_checker(double radius) {
-        if (radius <= 0) {
+        if (radius < 0) {
             throw std::invalid_argument("Радиус должен быть больше 0\n");
         } else if (radius > 5000) {
             throw std::invalid_argument("Радиус слишком большой\n");

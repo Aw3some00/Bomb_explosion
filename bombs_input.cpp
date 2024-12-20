@@ -6,20 +6,30 @@
 #include <thread>
 #include <chrono>
 
+
+bool is_duplicate(const std::vector<b::Bomb>& bombs, const b::Bomb& new_bomb) {
+    for (const auto& bomb : bombs) {
+        if (bomb.x == new_bomb.x && bomb.y == new_bomb.y) {
+            return true;
+        }
+    }
+    return false;
+}
+
 void Animation() {
-    std::cout << "Загрузка\n";
+    std::cout << "Boom!  The chain reaction begins!\"\n";
     for (int i = 0; i < 10; ++i) {
         std::cout << i * 10 << "% ";
         std::this_thread::sleep_for(std::chrono::milliseconds(500));
         std::cout.flush();
     }
     std::cout << "\n";
-    std::cout << "Загрузка завершена!\n";
+    std::cout << "Ka-booooooom!\n";
 }
 
 void collect_info(std::vector<b::Bomb>& bombs) {
     double count;
-    std::cout << "Введите количество бомб: ";
+    std::cout << "Введите количество бомб(Let's make some explosions!): ";
     std::cin >> count;
 
     if (std::cin.fail()) {
@@ -55,12 +65,20 @@ void collect_info(std::vector<b::Bomb>& bombs) {
         if (checkers::r_checker(bomb.radius) &&
             checkers::borders_check(bomb.x) &&
             checkers::borders_check(bomb.y)) {
+
+            // Проверка на одинаковые координаты
+            if (is_duplicate(bombs, bomb)) {
+                std::cout << "Ошибка! Бомба с такими координатами уже существует!\n";
+                i--; // Повторить ввод для этой бомбы
+                continue;
+            }
+
             bombs.push_back(bomb);
             std::cout << "Бомба добавлена! Координаты: (" << bomb.x << ", " << bomb.y << "), радиус: "
                       << bomb.radius << std::endl;
         } else {
             std::cout << "Ошибка в данных бомбы под номером " << i + 1 << ". Пожалуйста, введите данные снова.\n";
-            i--;
+            i--; // Повторить ввод для этой бомбы
         }
     }
 }
