@@ -3,7 +3,7 @@
 [![Build Status](https://img.shields.io/badge/build-passing-darkgreen)](https://shields.io/)
 [![License](https://img.shields.io/badge/license-MIT-blue)](https://opensource.org/licenses/MIT)
 ![Last Commit](https://img.shields.io/github/last-commit/Aw3some00/Bomb_explosion)
-![Version](https://img.shields.io/badge/version-v1.0.1-blue)
+![Version](https://img.shields.io/badge/version-v1.0.2-blue)
 
 ![Stars](https://img.shields.io/github/stars/username/repository?style=social)
 
