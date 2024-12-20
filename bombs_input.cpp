@@ -66,10 +66,10 @@ void collect_info(std::vector<b::Bomb>& bombs) {
             checkers::borders_check(bomb.x) &&
             checkers::borders_check(bomb.y)) {
 
-            // Проверка на одинаковые координаты
+
             if (is_duplicate(bombs, bomb)) {
                 std::cout << "Ошибка! Бомба с такими координатами уже существует!\n";
-                i--; // Повторить ввод для этой бомбы
+                i--;
                 continue;
             }
 
@@ -78,7 +78,7 @@ void collect_info(std::vector<b::Bomb>& bombs) {
                       << bomb.radius << std::endl;
         } else {
             std::cout << "Ошибка в данных бомбы под номером " << i + 1 << ". Пожалуйста, введите данные снова.\n";
-            i--; // Повторить ввод для этой бомбы
+            i--;
         }
     }
 }

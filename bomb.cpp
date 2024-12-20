@@ -1,14 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <cstdlib>
-#include <ctime>
 #include <queue>
 #include <stdexcept>
-#include <tuple>
-#include <map>
-#include <set>
-#include <algorithm>
+#include "bomb.h"
+
 
 namespace checkers {
     bool borders_check(double x) {
@@ -27,24 +23,26 @@ namespace checkers {
 
     bool r_checker(double radius) {
         if (radius < 0) {
-            throw std::invalid_argument("Радиус должен быть больше 0\n");
+            throw std::out_of_range("Радиус должен быть больше 0\n");
         } else if (radius > 5000) {
-            throw std::invalid_argument("Радиус слишком большой\n");
+            throw std::out_of_range("Радиус слишком большой\n");
         }
         return true;
     }
 }
 namespace b {
-    struct Bomb {
-        double x;
-        double y;
-        double radius;
-        bool exploded = false;
-    };
 
-    bool is_in_radius(const Bomb& a, const Bomb& b) {
-        double distance_squared = (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
-        return distance_squared <= a.radius * a.radius && !b.exploded;
+    bool is_in_radius(const Bomb a, const Bomb b) {
+        if(a.x==b.x && a.y==b.y && a.radius==b.radius){
+            throw std::invalid_argument("одинаковые точки");
+        }
+        if(checkers::r_checker(a.radius)<5000 && checkers::r_checker(b.radius)) {
+            double distance_squared = (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
+            return distance_squared <= a.radius * a.radius && !b.exploded;
+        }
+        else{
+            throw std::out_of_range("радиус слишком большой");
+        }
     }
 
     double intersection_area(double R1, double R2,double d) {
@@ -62,6 +60,14 @@ namespace b {
     }
 
     int simulate_chain_reaction(std::vector<Bomb>& bombs, int start_index) {
+        if (bombs.empty()) {
+            throw std::invalid_argument("Вектор бомб пуст");
+        }
+
+        if (start_index < 0 || start_index >= bombs.size()) {
+            throw std::out_of_range("Индекс начала реакции выходит за пределы вектора бомб");
+        }
+
         int detonated_count = 0;
         std::queue<int> q;
 

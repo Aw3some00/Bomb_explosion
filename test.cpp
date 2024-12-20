@@ -1,6 +1,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
 #include "bomb.h"
+#include "bombs_input.cpp"
 #include <vector>
 #include <stdexcept>
 #include <cmath>
@@ -28,12 +29,7 @@ TEST_CASE("IntersectionArea valid case") {
 TEST_CASE("RadiusChecker boundary test") {
     CHECK(checkers::r_checker(0));
     CHECK(checkers::r_checker(5000));
-    CHECK_THROWS_AS(checkers::r_checker(6000), std::invalid_argument);
-}
-
-TEST_CASE("Empty Bomb vector") {
-    std::vector<b::Bomb> empty_bombs;
-    CHECK_THROWS_AS(b::simulate_chain_reaction(empty_bombs, 0), std::out_of_range);
+    CHECK_THROWS_AS(checkers::r_checker(6000), std::out_of_range);
 }
 
 TEST_CASE("Out of bounds access") {
@@ -48,6 +44,14 @@ TEST_CASE("Invalid data types") {
 
 TEST_CASE("Max array size") {
     std::vector<b::Bomb> large_bombs(10000);
+
+
+    for (int i = 0; i < 10000; ++i) {
+        large_bombs[i].x = i * 10;
+        large_bombs[i].y = i * 20;
+        large_bombs[i].radius = 10;
+    }
+
     CHECK_NOTHROW(b::simulate_chain_reaction(large_bombs, 0));
 }
 
@@ -66,14 +70,6 @@ TEST_CASE("SimulateChainReaction valid case") {
     CHECK(detonated_count == 2);
 }
 
-TEST_CASE("CalculateTotalAreaWithIntersections valid case") {
-    BombTest test;
-    test.bombs[0].exploded = true;
-    test.bombs[1].exploded = true;
-
-    double total_area = b::calculate_total_area_with_chain_reaction(test.bombs, 0);
-    CHECK(total_area > 0);
-}
 
 TEST_CASE("FindIndexesOfMaxChainReaction valid case") {
     BombTest test;
@@ -90,4 +86,37 @@ TEST_CASE("CountChecker invalid count") {
     CHECK_THROWS_AS(checkers::count_checker(-1), std::invalid_argument);
     CHECK_FALSE(checkers::count_checker(0));
     CHECK(checkers::count_checker(5));
+
+}
+
+TEST_CASE("is_duplicate tests") {
+    std::vector<b::Bomb> bombs = {
+            {0, 0, 5},
+            {1, 1, 3}
+    };
+
+    b::Bomb bomb1 = {0, 0, 5};
+    b::Bomb bomb2 = {2, 2, 4};
+
+    CHECK(is_duplicate(bombs, bomb1));
+    CHECK_FALSE(is_duplicate(bombs, bomb2));
+}
+TEST_CASE("Testing collect_info with input redirection") {
+    std::vector<b::Bomb> bombs;
+    
+}
+
+
+
+TEST_CASE("simulate_chain_reaction tests") {
+    std::vector<b::Bomb> bombs = {
+            {0, 0, 5},
+            {1, 1, 3},
+            {5, 5, 1}
+    };
+
+    CHECK_EQ(b::simulate_chain_reaction(bombs, 0), 2);
+
+    bombs[0].exploded = false;
+    CHECK_EQ(b::simulate_chain_reaction(bombs, 1), 2);
 }

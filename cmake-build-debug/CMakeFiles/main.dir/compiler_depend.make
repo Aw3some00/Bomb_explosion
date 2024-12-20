@@ -571,7 +571,6 @@ CMakeFiles/main.dir/bomb.cpp.o: /Users/rashidovfuad/Desktop/Bomb_explosion/bomb.
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__thread/id.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__thread/poll_with_backoff.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__threading_support \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__tree \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__tuple/make_tuple_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__tuple/pair_like.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__tuple/sfinae_helpers.h \
@@ -781,7 +780,6 @@ CMakeFiles/main.dir/bomb.cpp.o: /Users/rashidovfuad/Desktop/Bomb_explosion/bomb.
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/limits \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/locale \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/locale.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/map \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/math.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/memory \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/mutex \
@@ -791,7 +789,6 @@ CMakeFiles/main.dir/bomb.cpp.o: /Users/rashidovfuad/Desktop/Bomb_explosion/bomb.
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/print \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/queue \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/ratio \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/set \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/stack \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/stddef.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/stdexcept \
@@ -960,7 +957,8 @@ CMakeFiles/main.dir/bomb.cpp.o: /Users/rashidovfuad/Desktop/Bomb_explosion/bomb.
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/limits.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdarg.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stddef.h \
-  /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdint.h
+  /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdint.h \
+  /Users/rashidovfuad/Desktop/Bomb_explosion/bomb.h
 
 CMakeFiles/main.dir/main.cpp.o: /Users/rashidovfuad/Desktop/Bomb_explosion/main.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/Availability.h \
@@ -2175,9 +2173,9 @@ CMakeFiles/main.dir/main.cpp.o: /Users/rashidovfuad/Desktop/Bomb_explosion/main.
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/pthread/qos.h:
 
-/Users/rashidovfuad/Desktop/Bomb_explosion/bomb.h:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/sstream:
+
+/Users/rashidovfuad/Desktop/Bomb_explosion/bomb.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/pthread/pthread_impl.h:
 
@@ -2219,7 +2217,9 @@ CMakeFiles/main.dir/main.cpp.o: /Users/rashidovfuad/Desktop/Bomb_explosion/main.
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/tuple:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/string.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__concepts/predicate.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/string:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__numeric/pstl_transform_reduce.h:
 
@@ -2573,13 +2573,11 @@ CMakeFiles/main.dir/main.cpp.o: /Users/rashidovfuad/Desktop/Bomb_explosion/main.
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__tuple/tuple_element.h:
 
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__tuple/pair_like.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__type_traits/is_void.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__tuple/make_tuple_types.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__tuple/pair_like.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__tree:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__thread/id.h:
 
@@ -2715,7 +2713,13 @@ CMakeFiles/main.dir/main.cpp.o: /Users/rashidovfuad/Desktop/Bomb_explosion/main.
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__math/logarithms.h:
 
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__functional/perfect_forward.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/streambuf:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__math/inverse_trigonometric_functions.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/string.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__math/gamma.h:
 
@@ -2881,8 +2885,6 @@ CMakeFiles/main.dir/main.cpp.o: /Users/rashidovfuad/Desktop/Bomb_explosion/main.
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__memory/builtin_new_allocator.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/set:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__system_error/system_error.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__string/extern_template_lists.h:
@@ -3010,10 +3012,6 @@ CMakeFiles/main.dir/main.cpp.o: /Users/rashidovfuad/Desktop/Bomb_explosion/main.
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__concepts/swappable.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__algorithm/ranges_ends_with.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/string:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__concepts/predicate.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__concepts/movable.h:
 
@@ -3839,8 +3837,6 @@ CMakeFiles/main.dir/main.cpp.o: /Users/rashidovfuad/Desktop/Bomb_explosion/main.
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__algorithm/adjacent_find.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/map:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__algorithm/shift_right.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/cstddef:
@@ -3880,10 +3876,6 @@ CMakeFiles/main.dir/main.cpp.o: /Users/rashidovfuad/Desktop/Bomb_explosion/main.
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/xlocale/_wctype.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__algorithm/ranges_unique.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/streambuf:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__functional/perfect_forward.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__algorithm/pstl_generate.h:
 
