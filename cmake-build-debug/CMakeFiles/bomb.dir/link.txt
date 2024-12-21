@@ -1,2 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc libbomb.a CMakeFiles/bomb.dir/bomb.cpp.o CMakeFiles/bomb.dir/bombs_input.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib libbomb.a
