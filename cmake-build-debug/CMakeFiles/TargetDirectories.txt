@@ -1,4 +1,0 @@
-/Users/rashidovfuad/Desktop/Bomb_explosion/cmake-build-debug/CMakeFiles/tests.dir
-/Users/rashidovfuad/Desktop/Bomb_explosion/cmake-build-debug/CMakeFiles/main.dir
-/Users/rashidovfuad/Desktop/Bomb_explosion/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/rashidovfuad/Desktop/Bomb_explosion/cmake-build-debug/CMakeFiles/rebuild_cache.dir
