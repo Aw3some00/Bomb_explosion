@@ -112,7 +112,7 @@ return M_Pi*R1*R1;
                     if (bombs[j].exploded) {
                         double distance = sqrt((bombs[i].x - bombs[j].x) * (bombs[i].x - bombs[j].x) +
                                            (bombs[i].y - bombs[j].y) * (bombs[i].y - bombs[j].y));
-                        if (distance <= bombs[i].radius + bombs[j].radius) {
+                        if (distance < bombs[i].radius + bombs[j].radius) {
 
                             total_area -= intersection_area(bombs[i].radius, bombs[j].radius,distance);
                         else if(distance <= fabs(bombs[i].radius-bombs[j].radius)){
