@@ -103,7 +103,7 @@ TEST_CASE("is_duplicate tests") {
 }
 TEST_CASE("Testing collect_info with input redirection") {
     std::vector<b::Bomb> bombs;
-    
+
 }
 
 

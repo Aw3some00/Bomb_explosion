@@ -17,9 +17,8 @@ namespace b{
         bool exploded;
     };
     bool is_in_radius(Bomb a,Bomb b);
-    std::vector<Bomb> generateBombs(int rows, int cols, int ones_count, double min_radius, double max_radius);
-    void printBombs(const std::vector<Bomb>& bombs);
     double intersection_area(double R1, double R2, double d);
+    double calculate_total_area(std::vector<Bomb>& bombs);
     int simulate_chain_reaction(std::vector<Bomb>& bombs, int start_index);
     void find_indexes_of_max_chain_reaction(std::vector<Bomb>& bombs, std::vector<int>& max_indexes, double& max_area);
 

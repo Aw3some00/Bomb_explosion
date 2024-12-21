@@ -16,16 +16,26 @@ bool is_duplicate(const std::vector<b::Bomb>& bombs, const b::Bomb& new_bomb) {
     return false;
 }
 
+
+
+
+
 void Animation() {
     std::cout << "Boom!  The chain reaction begins!\"\n";
     for (int i = 0; i < 10; ++i) {
-        std::cout << i * 10 << "% ";
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        std::cout << i*10 << "% ";
+        std::this_thread::sleep_for(std::chrono::milliseconds(300));
         std::cout.flush();
     }
     std::cout << "\n";
     std::cout << "Ka-booooooom!\n";
 }
+
+
+
+
+
+
 
 void collect_info(std::vector<b::Bomb>& bombs) {
     double count;
@@ -83,6 +93,10 @@ void collect_info(std::vector<b::Bomb>& bombs) {
     }
 }
 
+
+
+
+
 void print_result(std::vector<b::Bomb>& bombs, std::vector<int>& max_indexes, double max_area) {
     std::cout << "\nВведенные вами данные:\n";
     for (size_t i = 0; i < bombs.size(); ++i) {
@@ -94,8 +108,6 @@ void print_result(std::vector<b::Bomb>& bombs, std::vector<int>& max_indexes, do
     std::cout << "Запуск поиска наибольшей цепной реакции...\n";
     Animation();
     b::find_indexes_of_max_chain_reaction(bombs, max_indexes, max_area);
-
-    system("clear");
 
     std::cout << "Индекс максимальной цепной реакции: ";
     for (int index : max_indexes) {
