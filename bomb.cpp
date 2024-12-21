@@ -115,7 +115,7 @@ return M_Pi*R1*R1;
                         if (distance < bombs[i].radius + bombs[j].radius) {
 
                             total_area -= intersection_area(bombs[i].radius, bombs[j].radius,distance);
-                        else if(distance <= fabs(bombs[i].radius-bombs[j].radius)){
+                        else if(distance < fabs(bombs[i].radius-bombs[j].radius)){
                             total_area-=circle_area(std::min(bombs[i].radius,bombs[j].radius));
                             
                         }
