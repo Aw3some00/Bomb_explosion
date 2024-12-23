@@ -102,7 +102,7 @@ Bomb added! Coordinates: (200, 200), Radius: 2
 
 ### 🔥 Results:
 
-- **Indexes of the maximum chain reaction**: 1, 2, 3
+- **Indexes of the maximum chain reaction**: 1, 2
 - **Total blast area (detonated)**: 12.5664
 
 ---
