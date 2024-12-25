@@ -9,8 +9,8 @@
 
 ## Table of Contents
 - [Description](#-description)
-- [Program Functionality](#Program Functionality)
-- [Input Data and example](#Input Data)
+- [Program Functionality](#-program-functionality)
+- [Input Data and example](#-input-data)
 - [Features](#-features)
 - [Installation](#-installation)
 - [Math based part](#math-based-part-)
