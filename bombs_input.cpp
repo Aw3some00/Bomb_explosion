@@ -4,7 +4,6 @@
 #include "bomb.h"
 #include "bombs_input.h"
 #include <thread>
-#include <chrono>
 
 
 bool is_duplicate(const std::vector<b::Bomb>& bombs, const b::Bomb& new_bomb) {
@@ -57,13 +56,13 @@ void collect_info(std::vector<b::Bomb>& bombs) {
         std::cout << "Координата X: ";
         std::cin >> bomb.x;
         if (std::cin.fail()) {
-            throw std::invalid_argument("Введите число для координаты X");
+            throw std::invalid_argument("Введите число для координаты X или координаты Y");
         }
 
         std::cout << "Координата Y: ";
         std::cin >> bomb.y;
         if (std::cin.fail()) {
-            throw std::invalid_argument("Введите число для координаты Y");
+            throw std::invalid_argument("Введите число для координаты X или координаты Y");
         }
 
         std::cout << "Радиус: ";
