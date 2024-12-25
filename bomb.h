@@ -2,7 +2,6 @@
 #define BOMB_H
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 namespace checkers {
     bool count_checker(double const percent);
