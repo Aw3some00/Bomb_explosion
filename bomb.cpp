@@ -13,9 +13,9 @@ namespace checkers {
 
     bool count_checker(double count) {
         if (count < 0) {
-            throw std::invalid_argument("Слишком мало бомб\n");
+            throw std::invalid_argument("Слишком мало бомб");
         } else if (count == 0) {
-            std::cout << "Отсутствие бомб на поле\n";
+            std::cout << "Отсутствие бомб на поле";
             return false;
         }
         return true;
@@ -23,9 +23,9 @@ namespace checkers {
 
     bool r_checker(double radius) {
         if (radius < 0) {
-            throw std::out_of_range("Радиус должен быть больше 0\n");
+            throw std::out_of_range("Радиус должен быть больше 0");
         } else if (radius > 5000) {
-            throw std::out_of_range("Радиус слишком большой\n");
+            throw std::out_of_range("Радиус слишком большой");
         }
         return true;
     }
@@ -36,7 +36,7 @@ namespace b {
         if(a.x==b.x && a.y==b.y && a.radius==b.radius){
             throw std::invalid_argument("одинаковые точки");
         }
-        if(checkers::r_checker(a.radius)<5000 && checkers::r_checker(b.radius)) {
+        if(checkers::r_checker(a.radius) && checkers::r_checker(b.radius)) {
             double distance_squared = (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
             return distance_squared <= a.radius * a.radius && !b.exploded;
         }

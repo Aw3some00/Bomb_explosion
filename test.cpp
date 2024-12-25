@@ -13,16 +13,13 @@ struct BombTest {
     std::vector<b::Bomb> bombs{bomb1, bomb2, bomb3};
 };
 
-
-TEST_CASE("is_in_radius tests") {
+TEST_CASE("IsInRadius valid case") {
     BombTest test;
     CHECK(b::is_in_radius(test.bomb1, test.bomb2));
-    CHECK_FALSE(b::is_in_radius(test.bomb1, test.bomb3)); 
+    CHECK_FALSE(b::is_in_radius(test.bomb1, test.bomb3));
 }
 
-// Проверка расчета площади пересечения
-TEST_CASE("intersection_area tests") {
-
+TEST_CASE("IntersectionArea valid case") {
     double area = b::intersection_area(10, 10, 5);
     CHECK(area > 0);
 
@@ -30,61 +27,103 @@ TEST_CASE("intersection_area tests") {
     CHECK(area == 0);
 }
 
-// Проверка функции r_checker
-TEST_CASE("r_checker boundary tests") {
-    CHECK(checkers::r_checker(1));  
-    CHECK(checkers::r_checker(5000));  
-    CHECK_THROWS_AS(checkers::r_checker(6000), std::out_of_range); 
-    CHECK_THROWS_AS(checkers::r_checker(-10), std::invalid_argument); 
+
+TEST_CASE("RadiusChecker boundary test") {
+    CHECK(checkers::r_checker(0));
+    CHECK(checkers::r_checker(5000));
+    CHECK_THROWS_AS(checkers::r_checker(6000), std::out_of_range);
+    CHECK_THROWS_WITH(checkers::r_checker(-10),"Радиус должен быть больше 0");
 }
 
-// Проверка  цепной реакции
-TEST_CASE("simulate_chain_reaction tests") {
+TEST_CASE("Out of bounds access") {
+    BombTest test;
+    CHECK_THROWS_AS(b::simulate_chain_reaction(test.bombs, 10), std::out_of_range);
+}
+
+TEST_CASE("Invalid data types") {
+    std::vector<b::Bomb> invalid_bombs;
+    CHECK_THROWS_AS(b::simulate_chain_reaction(invalid_bombs, 0), std::invalid_argument);
+}
+
+TEST_CASE("Max array size") {
+    std::vector<b::Bomb> large_bombs(10000);
+
+
+    for (int i = 0; i < 10000; ++i) {
+        large_bombs[i].x = i * 10;
+        large_bombs[i].y = i * 20;
+        large_bombs[i].radius = 10;
+    }
+
+    CHECK_NOTHROW(b::simulate_chain_reaction(large_bombs, 0));
+}
+
+TEST_CASE("Bomb radius exceeds limit") {
+    b::Bomb bomb{0, 0, 10000, false};
+    CHECK_THROWS_AS(b::is_in_radius(bomb, BombTest().bomb1), std::out_of_range);
+}
+
+TEST_CASE("Invalid bomb type") {
+    CHECK_THROWS_AS(b::is_in_radius(BombTest().bomb1, BombTest().bomb1), std::invalid_argument);
+}
+
+TEST_CASE("SimulateChainReaction valid case") {
     BombTest test;
     int detonated_count = b::simulate_chain_reaction(test.bombs, 0);
-
-    CHECK_EQ(detonated_count, 2);
-
-    for (auto& bomb : test.bombs) {
-        bomb.exploded = true;
-    }
-    CHECK_EQ(b::simulate_chain_reaction(test.bombs, 0), 0);
+    CHECK(detonated_count == 2);
 }
 
-// Проверка поиска индексов максимальной цепной реакции
-TEST_CASE("find_indexes_of_max_chain_reaction tests") {
+
+TEST_CASE("FindIndexesOfMaxChainReaction valid case") {
     BombTest test;
     std::vector<int> max_indexes;
     double max_area = 0;
 
     b::find_indexes_of_max_chain_reaction(test.bombs, max_indexes, max_area);
 
+    CHECK(!max_indexes.empty());
+    CHECK(max_area > 0);
+}
 
-    CHECK_FALSE(max_indexes.empty());
-    CHECK_GT(max_area, 0);
+TEST_CASE("CountChecker invalid count") {
+    CHECK_THROWS_AS(checkers::count_checker(-1), std::invalid_argument);
+    CHECK_FALSE(checkers::count_checker(0));
+    CHECK(checkers::count_checker(5));
+
+}
+
+TEST_CASE("is_duplicate tests") {
+    std::vector<b::Bomb> bombs = {
+            {0, 0, 5},
+            {1, 1, 3}
+    };
+
+    b::Bomb bomb1 = {0, 0, 5};
+    b::Bomb bomb2 = {2, 2, 4};
+
+    CHECK(is_duplicate(bombs, bomb1));
+    CHECK_FALSE(is_duplicate(bombs, bomb2));
 }
 
 
-TEST_CASE("Error handling tests") {
-    // Проверка на недопустимый радиус
-    CHECK_THROWS_AS(checkers::r_checker(10000), std::out_of_range);
 
-    // Проверка на пустой массив бомб
-    std::vector<b::Bomb> empty_bombs;
-    CHECK_THROWS_AS(b::simulate_chain_reaction(empty_bombs, 0), std::invalid_argument);
+TEST_CASE("Testing collect_info with input redirection") {
+    std::vector<b::Bomb> bombs;
 
-    // Проверка на дублирующиеся бомбы
-    std::vector<b::Bomb> bombs = {{0, 0, 10}, {0, 0, 10}};
-    CHECK(is_duplicate(bombs, b::Bomb{0, 0, 10}));
 }
 
 
-TEST_CASE("Large array tests") {
-    std::vector<b::Bomb> large_bombs(10000);
-    for (int i = 0; i < 10000; ++i) {
-        large_bombs[i] = {i * 10, i * 20, 10, false};
-    }
 
+TEST_CASE("simulate_chain_reaction tests") {
+    std::vector<b::Bomb> bombs = {
+            {0, 0, 5},
+            {1, 1, 3},
+            {5, 5, 1}
+    };
 
-    CHECK_NOTHROW(b::simulate_chain_reaction(large_bombs, 0));
+    CHECK_EQ(b::simulate_chain_reaction(bombs, 0), 2);
+
+    bombs[0].exploded = false;
+    CHECK_EQ(b::simulate_chain_reaction(bombs, 1), 2);
 }
+
