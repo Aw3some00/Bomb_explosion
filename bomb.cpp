@@ -1,8 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
 #include <queue>
-#include <stdexcept>
 #include "bomb.h"
 
 
