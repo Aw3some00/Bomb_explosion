@@ -239,7 +239,7 @@ You are free to use, modify, and distribute this project as long as you retain t
 ## 📞 Contact
 
 For any inquiries, please reach out to
-### **imaginarymail@gmail.com **
+### **fuadrashidov06@gmail.com emilyafandieva123@gmail.com** 
 
 ---
 ## ♥️ Support us on Patreon
