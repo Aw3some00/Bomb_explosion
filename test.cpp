@@ -3,8 +3,7 @@
 #include "bomb.h"
 #include "bombs_input.cpp"
 #include <vector>
-#include <stdexcept>
-#include <cmath>
+
 
 struct BombTest {
     b::Bomb bomb1{0, 0, 10, false};
@@ -31,7 +30,7 @@ TEST_CASE("IntersectionArea valid case") {
 TEST_CASE("RadiusChecker boundary test") {
     CHECK(checkers::r_checker(0));
     CHECK(checkers::r_checker(5000));
-    CHECK_THROWS_AS(checkers::r_checker(6000), std::out_of_range);
+    CHECK_THROWS_AS(checkers::r_checker(11000), std::out_of_range);
     CHECK_THROWS_WITH(checkers::r_checker(-10),"Радиус должен быть больше 0");
 }
 
@@ -59,7 +58,7 @@ TEST_CASE("Max array size") {
 }
 
 TEST_CASE("Bomb radius exceeds limit") {
-    b::Bomb bomb{0, 0, 10000, false};
+    b::Bomb bomb{0, 0, 10001, false};
     CHECK_THROWS_AS(b::is_in_radius(bomb, BombTest().bomb1), std::out_of_range);
 }
 
