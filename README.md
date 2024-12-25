@@ -7,6 +7,22 @@
 
 ![Stars](https://img.shields.io/github/stars/username/repository?style=social)
 
+## Table of Contents
+- [Description](#-description)
+- [Program Functionality](#Program Functionality)
+- [Input Data and example](#Input Data)
+- [Features](#-features)
+- [Installation](#-installation)
+- [Math based part](#math-based-part-)
+- [Functions Description](#functions-description-)
+  -  [Namespace `checkers`](#namespace-checkers)
+   - [Namespace `b`](#namespace-b)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Contact](#-contact)
+- [Support us on patreon](#-support-us-on-patreon)
+
+
 
 
 
@@ -126,14 +142,77 @@ To use the Chain Reaction Simulator, you need to have **C++** installed on your 
 2. Navigate into the project folder:
    ```bash 
    cd Bomb_explosion
-3. Compile the program:
+3. Compile the program(example shows how to compile with g++ compilator you can do it on Cmake):
     ```bash 
-   g++ -o chain_reaction_simulator main.cpp 
-4. Run the program:
+   g++ -o chain_reaction_simulator main.cpp
+
+3.1.  If you use Cmake,everything you need were put in Cmakelists.txt file,just use "CmakeLists.txt" file to compile 
+and enjot the process of "EXPLOSION"🔥
+
+4. Run the program(on g++ compiler):
     ```bash 
    ./chain_reaction_simulator
+
+
+   
+5. P.S do you hear "Ka-Boooooooom?"💣
    
 ---
+## Math based part 
+Those program is based on math formulas like:
+1. Area of the circle 
+   ```bash
+   𝛑𝚛^2
+2. Area of the intersection between 2 circles
+      ```bash
+   S = R1² * acos((d² + R1² - R2²) / (2 * d * R1)) + R2² * acos((d² + R2² - R1²) / (2 * d * R2)) - sqrt((-d + R1 + R2) * (d + R1 - R2) * (d - R1 + R2) * (d + R1 + R2))
+
+#### Variables:
+- `R1` — radius of the first circle.
+- `R2` — radius of the second circle.
+- `d` — distance between the centers of the two circles.
+
+This formula is used to compute the intersection area of two circles in Euclidean geometry.
+
+---
+## Functions Description 
+
+### Namespace `checkers`
+1. **`borders_check(double x)`**  
+   Verifies if the coordinate `x` is within the valid range [-10000, 10000].
+
+ 2. **`count_checker(double count)`**  
+   Ensures the number of bombs is valid. Throws an exception if `count` is less than 0. Returns `false` if no bombs are present.
+
+3. **`r_checker(double radius)`**  
+   Checks if the bomb's radius is within the allowed range [0, 10000]. Throws exceptions for invalid values.
+
+---
+
+### Namespace `b`
+1. **`is_in_radius(const Bomb a, const Bomb b)`**  
+   Determines if bomb `b` is within the blast radius of bomb `a`. Throws exceptions for invalid bomb data or identical bombs.
+
+2. **`intersection_area(double R1, double R2, double d)`**  
+   Computes the intersection area between two circles representing explosion zones with radii `R1` and `R2` at distance `d`.
+
+3. **`simulate_chain_reaction(std::vector<Bomb>& bombs, int start_index)`**  
+   Simulates a chain reaction starting from the bomb at `start_index`. Returns the total number of detonated bombs.
+
+4. **`circle(double R1)`**  
+   Calculates the area of a circle with radius `R1`.
+
+5. **`calculate_total_area_with_intersections(std::vector<Bomb>& bombs)`**  
+   Computes the total affected area, accounting for overlapping explosion zones and fully contained zones.
+
+6. **`find_indexes_of_max_chain_reaction(std::vector<Bomb>& bombs, std::vector<int>& max_indexes, double& max_area)`**  
+   Identifies the indices of bombs that trigger the maximum chain reaction. Updates `max_indexes` and `max_area` with the results.
+
+
+---
+
+
+
 
 ## 🤝 Contributing
 
@@ -160,7 +239,7 @@ You are free to use, modify, and distribute this project as long as you retain t
 ## 📞 Contact
 
 For any inquiries, please reach out to
-### **kotnarkot962@gmail.com**
+### **imaginarymail@gmail.com **
 
 ---
 ## ♥️ Support us on Patreon
