@@ -220,7 +220,7 @@ This formula is used to compute the intersection area of two circles in Euclidea
    A function that collects information from the user. The user enters the count of bombs, the X and Y coordinates, and the radii of the bombs. If any mistakes are found in the input, the function will inform the user about them
 ---
    ### **For example:**
-3.1 **Ошибка в данных бомбы под номером 1. Пожалуйста, введите данные снова.
+3. a) **Ошибка в данных бомбы под номером 1. Пожалуйста, введите данные снова.
     Введите координаты и радиус бомбы под номером 1:**
 ---
 4. **`print_result(std::vector<b::Bomb>& bombs, std::vector<int>& max_indexes, double max_area)`**
