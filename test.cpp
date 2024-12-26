@@ -106,12 +106,6 @@ TEST_CASE("is_duplicate tests") {
 
 
 
-TEST_CASE("Testing collect_info with input redirection") {
-    std::vector<b::Bomb> bombs;
-
-}
-
-
 
 TEST_CASE("simulate_chain_reaction tests") {
     std::vector<b::Bomb> bombs = {

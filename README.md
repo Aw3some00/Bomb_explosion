@@ -175,7 +175,7 @@ Those program is based on math formulas like:
 This formula is used to compute the intersection area of two circles in Euclidean geometry.
 
 ---
-## Functions Description 
+## Functions Description(bombs.cpp)
 
 ### Namespace `checkers`
 1. **`borders_check(double x)`**  
@@ -210,7 +210,31 @@ This formula is used to compute the intersection area of two circles in Euclidea
 
 
 ---
+## Functions Description(bombs_input.cpp)
+1. **`is_duplicate(const std::vector<b::Bomb>& bombs, const b::Bomb& new_bomb);`**
+  Checks if bombs in input duplicates or not,if yes returns true,else returns false
+2. **`Animation()`**
+  Simple animation of loading from 0 to 100;
+3. **`collect_info(std::vector<b::Bomb>& bombs)`**
+   A function that collects information from the user. The user enters the count of bombs, the X and Y coordinates, and the radii of the bombs. If any mistakes are found in the input, the function will inform the user about them
+---
+   ### **For example:**
+3.1 **Ошибка в данных бомбы под номером 1. Пожалуйста, введите данные снова.
+    Введите координаты и радиус бомбы под номером 1:**
+---
+4. **`print_result(std::vector<b::Bomb>& bombs, std::vector<int>& max_indexes, double max_area)`**
+A function that prints your entered information after some checks and shows it in a right way,then start animation(),after animation,calculates indexex that create maximum chain reaction and exploded area,and shows final result(it is exploded area and maximum indexex)
 
+**NOTE:** We taking into account the subtracted intersection
+5. **`strrtodbl(const std::string& input);`**
+ Changes string to double
+
+6.   **`is_valid_input(const std::string& input)`**
+Ensures that user-provided coordinates and radius values are valid numbers before converting and storing them.
+7.   **` is_int(const std::string& input)`**
+     Confirms that the count of bombs entered by the user is an integer before further processing.
+
+---
 
 
 

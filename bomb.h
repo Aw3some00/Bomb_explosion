@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 
+
 namespace checkers {
     bool count_checker(double const percent);
     bool r_checker(double const r);
@@ -19,6 +20,7 @@ namespace b{
     double intersection_area(double R1, double R2, double d);
     int simulate_chain_reaction(std::vector<Bomb>& bombs, int start_index);
     void find_indexes_of_max_chain_reaction(std::vector<Bomb>& bombs, std::vector<int>& max_indexes, double& max_area);
+
 
 }
 

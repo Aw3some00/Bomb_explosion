@@ -4,7 +4,7 @@ option(BUILD_SHARED_LIBS "Build using shared libraries" ON)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_library(bomb bomb.cpp bombs_input.cpp)
+add_library(bomb  bomb.cpp bombs_input.cpp)
 target_include_directories(bomb PUBLIC ${CMAKE_SOURCE_DIR})
 
 add_executable(tests test.cpp bomb.cpp)
