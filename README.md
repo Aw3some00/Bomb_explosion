@@ -17,6 +17,7 @@
 - [Functions Description](#functions-description-)
   -  [Namespace `checkers`](#namespace-checkers)
    - [Namespace `b`](#namespace-b)
+- [Functions Description(bombs_input.cpp)](#functions-descriptionbombs_inputcpp)
 - [Contributing](#-contributing)
 - [License](#-license)
 - [Contact](#-contact)
