@@ -227,6 +227,8 @@ This formula is used to compute the intersection area of two circles in Euclidea
 A function that prints your entered information after some checks and shows it in a right way,then start animation(),after animation,calculates indexex that create maximum chain reaction and exploded area,and shows final result(it is exploded area and maximum indexex)
 
 **NOTE:** We taking into account the subtracted intersection
+
+
 5. **`strrtodbl(const std::string& input);`**
  Changes string to double
 
