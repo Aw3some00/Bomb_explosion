@@ -1,4 +1,3 @@
-#include <vector>
 #include <cmath>
 #include <queue>
 #include "bomb.h"
@@ -13,7 +12,7 @@ namespace checkers {
         if (count < 0) {
             throw std::invalid_argument("Слишком мало бомб");
         } else if (count == 0) {
-            std::cout << "Отсутствие бомб на поле";
+            std::cout << "Отсутствие бомб на поле\n";
             return false;
         }
         return true;
@@ -22,13 +21,13 @@ namespace checkers {
     bool r_checker(double radius) {
         if (radius < 0) {
             throw std::out_of_range("Радиус должен быть больше 0");
-        } else if (radius > 5000) {
+        } else if (radius > 10000) {
             throw std::out_of_range("Радиус слишком большой");
         }
         return true;
     }
 }
-namespace b {
+namespace bomb {
 
     bool is_in_radius(const Bomb a, const Bomb b) {
         if(a.x==b.x && a.y==b.y && a.radius==b.radius){
@@ -48,7 +47,6 @@ namespace b {
         if (d >= R1 + R2 || d <= fabs(R1 - R2)) {
             return 0.0;
         }
-
 
         double part1 = R1 * R1 * acos((d * d + R1 * R1 - R2 * R2) / (2 * d * R1));
         double part2 = R2 * R2 * acos((d * d + R2 * R2 - R1 * R1) / (2 * d * R2));
@@ -92,7 +90,6 @@ namespace b {
 
         return detonated_count;
     }
-
 
     double circle(double R1){
         return M_PI*R1*R1;

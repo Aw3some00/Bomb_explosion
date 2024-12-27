@@ -1,5 +1,3 @@
-#include <iostream>
-#include <vector>
 #include <stdexcept>
 #include "bomb.h"
 #include "bombs_input.h"
@@ -42,7 +40,7 @@ double strrtodbl(const std::string& input) {
     return std::stod(input);
 }
 
-bool is_duplicate(const std::vector<b::Bomb>& bombs, const b::Bomb& new_bomb) {
+bool is_duplicate(const std::vector<bomb::Bomb>& bombs, const bomb::Bomb& new_bomb) {
     for (const auto& bomb : bombs) {
         if (bomb.x == new_bomb.x && bomb.y == new_bomb.y) {
             return true;
@@ -72,7 +70,7 @@ void Animation() {
 
 
 
-void collect_info(std::vector<b::Bomb>& bombs) {
+void collect_info(std::vector<bomb::Bomb>& bombs) {
     std::string count;
     std::cout << "Введите количество бомб(Let's make some explosions!): ";
     std::cin >> count;
@@ -89,7 +87,7 @@ void collect_info(std::vector<b::Bomb>& bombs) {
                 throw std::invalid_argument("Неверное количество бомб");
             }
 
-            b::Bomb bomb;
+            bomb::Bomb bomb;
             for (int i = 0; i < std::stoi(count); i++) {
                 std::cout << "Введите координаты и радиус бомбы под номером " << i + 1 << ":\n";
                 std::string input;
@@ -175,7 +173,7 @@ void collect_info(std::vector<b::Bomb>& bombs) {
 
 
 
-void print_result(std::vector<b::Bomb>& bombs, std::vector<int>& max_indexes, double max_area) {
+void print_result(std::vector<bomb::Bomb>& bombs, std::vector<int>& max_indexes, double max_area) {
     std::cout << "\nВведенные вами данные:\n";
     for (size_t i = 0; i < bombs.size(); ++i) {
         std::cout << "Бомба " << i + 1 << " на (" <<std::setprecision(15)<<bombs[i].x<<", "<< std::setprecision(15)<<bombs[i].y
@@ -185,7 +183,7 @@ void print_result(std::vector<b::Bomb>& bombs, std::vector<int>& max_indexes, do
 
     std::cout << "Запуск поиска наибольшей цепной реакции...\n";
     Animation();
-    b::find_indexes_of_max_chain_reaction(bombs, max_indexes, max_area);
+    bomb::find_indexes_of_max_chain_reaction(bombs, max_indexes, max_area);
 
     std::cout << "Индекс максимальной цепной реакции: ";
     for (int index : max_indexes) {

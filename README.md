@@ -16,7 +16,7 @@
 - [Math based part](#math-based-part-)
 - [Functions Description](#functions-description-)
   -  [Namespace `checkers`](#namespace-checkers)
-   - [Namespace `b`](#namespace-b)
+   - [Namespace `bomb`](#namespace-bomb)
 - [Functions Description(bombs_input.cpp)](#functions-descriptionbombs_inputcpp)
 - [Contributing](#-contributing)
 - [License](#-license)
@@ -132,7 +132,7 @@ Bomb added! Coordinates: (200, 200), Radius: 2
 
 ---
 
-## 🛠️ Installation
+## 🛠️ Installation on g++ compiler
 
 To use the Chain Reaction Simulator, you need to have **C++** installed on your machine. Follow these steps to run the program:
 
@@ -146,18 +146,36 @@ To use the Chain Reaction Simulator, you need to have **C++** installed on your 
 3. Compile the program(example shows how to compile with g++ compilator you can do it on Cmake):
     ```bash 
    g++ -o chain_reaction_simulator main.cpp
-
-3.1.  If you use Cmake,everything you need were put in Cmakelists.txt file,just use "CmakeLists.txt" file to compile 
-and enjot the process of "EXPLOSION"🔥
-
 4. Run the program(on g++ compiler):
     ```bash 
    ./chain_reaction_simulator
-
-
-   
 5. P.S do you hear "Ka-Boooooooom?"💣
    
+---
+## 🛠️ Installation on Cmake compiler
+
+To use the Chain Reaction Simulator, you need to have **Cmake** installed on your machine. Follow these steps to run the program:
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Aw3some00/Bomb_explosion.git
+2. Navigate into the project folder:
+   ```bash 
+   cd Bomb_explosion
+3. Create and navigate to the build folder
+   ```bash 
+   mkdir build && cd build
+4. Run CMake to configure and build:   
+    ```bash 
+   cmake ..
+    cmake --build .
+5. Run the project: After the build is complete, run the project:
+   ```bash 
+   ./main
+6   P.S do you hear "Ka-Boooooooom? again?))"💣
+
+
 ---
 ## Math based part 
 Those program is based on math formulas like:
@@ -190,7 +208,7 @@ This formula is used to compute the intersection area of two circles in Euclidea
 
 ---
 
-### Namespace `b`
+### Namespace `bomb`
 1. **`is_in_radius(const Bomb a, const Bomb b)`**  
    Determines if bomb `b` is within the blast radius of bomb `a`. Throws exceptions for invalid bomb data or identical bombs.
 

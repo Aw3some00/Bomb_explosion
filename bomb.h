@@ -9,7 +9,7 @@ namespace checkers {
     bool r_checker(double const r);
     bool borders_check(double const x);
 }
-namespace b{
+namespace bomb{
     struct Bomb {
         double x;
         double y;

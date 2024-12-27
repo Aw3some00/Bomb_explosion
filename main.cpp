@@ -5,7 +5,7 @@
 
 int main() {
     try {
-        std::vector<b::Bomb> bombs;
+        std::vector<bomb::Bomb> bombs;
 
         collect_info(bombs);
 
