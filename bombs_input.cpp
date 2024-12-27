@@ -1,5 +1,4 @@
 #include <stdexcept>
-#include "bomb.h"
 #include "bombs_input.h"
 #include <thread>
 #include <iomanip>
