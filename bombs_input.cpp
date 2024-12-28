@@ -158,7 +158,7 @@ void collect_info(std::vector<bomb::Bomb>& bombs) {
                               << std::setprecision(15) << bomb.radius << "\n";
                 } else {
                     std::cout << "Ошибка в данных бомбы под номером " << i + 1
-                              << ". Пожалуйста, введите данные снова.\n";
+                              << ",пожалуйста, введите данные снова \n";
                     i--;
                 }
             }
