@@ -28,6 +28,7 @@
 
 
 
+
 Welcome to the **Chain Reaction Simulator**! 🎉
 
 **Chain Reaction Simulator** is a program that analyzes the mutual positions of bombs on a 10,000 x 10,000 2D grid. The goal is to find the bomb that, when exploded, triggers the largest chain reaction, and calculates the total damage area, considering intersections of bomb radii.
