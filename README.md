@@ -1,6 +1,6 @@
 # Chain Reaction Simulator 🔥💣
 
-[![Build Status](https://img.shields.io/badge/build-passing-darkgreen)](https://shields.io/)
+[![Build Status](https://img.shields.io/badge/build-passing-white)](https://shields.io/)
 [![License](https://img.shields.io/badge/license-MIT-blue)](https://opensource.org/licenses/MIT)
 ![Last Commit](https://img.shields.io/github/last-commit/Aw3some00/Bomb_explosion)
 ![Version](https://img.shields.io/badge/version-v1.0.2-blue)
