@@ -170,12 +170,12 @@ To use the Chain Reaction Simulator, you need to have **Cmake** installed on you
    mkdir build && cd build
 4. Run CMake to configure and build:   
     ```bash 
-   cmake ..
+    cmake ..
     cmake --build .
 5. Run the project: After the build is complete, run the project:
    ```bash 
    ./main
-6   P.S do you hear "Ka-Boooooooom? again?))"💣
+6   P.S do you hear "Ka-Booooom? again?))"💣
 
 
 ---
